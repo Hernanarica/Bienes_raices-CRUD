@@ -1,15 +1,14 @@
 <?php
 
-function connectionDB()
+function connectionDB(): mysqli
 {
    $db = mysqli_connect('localhost', 'root', '', 'bienes_raices');
 
-   if ($db) {
-      echo ':)';
-   } else {
-      echo ':(';
+   if (!$db) {
+      echo "Error al intentar conectarse con la base de datos.";
+      exit;
    }
-}
 
-connectionDB();
+   return $db;
+}
 

@@ -1,0 +1,8 @@
+.msj-error {
+    padding: 10px;
+    margin-bottom: 2rem;
+    background-color: #C62828;
+    color: #fafafa;
+    font-weight: 600;
+    border-radius: 1rem;
+}
