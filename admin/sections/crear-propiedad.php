@@ -1,6 +1,8 @@
 <?php
 
 require_once '../dataBase/database.php';
+date_default_timezone_set('America/Argentina/Buenos_Aires');
+
 // Guardamos nuestra conexión en una variable
 $db = connectionDB();
 
@@ -21,13 +23,14 @@ while ($vendedor = mysqli_fetch_assoc($resVendedores)) {
 $vendedorId = null;
 if ($_SERVER[ 'REQUEST_METHOD' ] === 'POST') {
    // Guardamos la data de POST en variables
-   $titulo          = $_POST[ 'titulo' ];
-   $precio          = $_POST[ 'precio' ];
-   $descripcion     = $_POST[ 'descripcion' ];
-   $habitaciones    = $_POST[ 'habitaciones' ];
-   $wc              = $_POST[ 'wc' ];
-   $estacionamiento = $_POST[ 'estacionamiento' ];
-   $vendedorId      = $_POST[ 'vendedor' ];
+   $titulo          = mysqli_real_escape_string($db, $_POST[ 'titulo' ]);
+   $precio          = mysqli_real_escape_string($db, $_POST[ 'precio' ]);
+   $descripcion     = mysqli_real_escape_string($db, $_POST[ 'descripcion' ]);
+   $habitaciones    = mysqli_real_escape_string($db, $_POST[ 'habitaciones' ]);
+   $wc              = mysqli_real_escape_string($db, $_POST[ 'wc' ]);
+   $estacionamiento = mysqli_real_escape_string($db, $_POST[ 'estacionamiento' ]);
+   $vendedorId      = mysqli_real_escape_string($db, $_POST[ 'vendedor' ]);
+   $imagen          = $_FILES[ 'imagen' ];
    $creado          = date('Y/m/d');
 
    // Validamos esa data que viene de POST
@@ -52,17 +55,36 @@ if ($_SERVER[ 'REQUEST_METHOD' ] === 'POST') {
    if (!$vendedorId) {
       $errores[ 'vendedor' ] = 'Debes elegir 1 vendedor';
    }
+   // Validamos la imagen por nombre
+   if (!$imagen[ 'name' ]) {
+      $errores[ 'imagen' ] = 'Debes ingresar una imagen';
+   }
+   // Validamos la imagen por tamaño
+   // if ($imagen[ 'size' ] >= 500000) {
+   //    $errores[ 'imagen' ] = 'la imagen es muy grande';
+   // }
 
    // Si hay errores realizo y ejecuto la instrucción SQL.
    if (empty($errores)) {
-      $query = "INSERT INTO propiedades (titulo, precio, descripcion, habitaciones, wc, estacionamiento, fecha_creacion, fk_id_vendedores)
-             	 values('$titulo', '$precio', '$descripcion', '$habitaciones', '$wc', '$estacionamiento', '$creado' , '$vendedorId')";
+      // Subida de la imagen
+      // Creamos la carpeta de las imágenes si no existe
+      $folderImage = '../test-images/';
+      if (!is_dir($folderImage)) {
+         mkdir($folderImage);
+      }
+
+      // Subimos la imagen
+      $imageName = date('d-m-Y_H-i-s') . '.jpg';
+      move_uploaded_file($imagen[ 'tmp_name' ], "{$folderImage}{$imageName}");
+
+      $query = "INSERT INTO propiedades (titulo, precio, imagen, descripcion, habitaciones, wc, estacionamiento, fecha_creacion, fk_id_vendedores)
+             	 VALUES('$titulo', '$precio', '$imageName' , '$descripcion', '$habitaciones', '$wc', '$estacionamiento', '$creado' , '$vendedorId')";
 
       $res = mysqli_query($db, $query);
 
       // Redireccionamos si la instrucción SQL fue correcta
       if ($res) {
-         header('location: index.php');
+         header('location: index.php?resultado=1');
       }
    }
 }
@@ -70,8 +92,7 @@ if ($_SERVER[ 'REQUEST_METHOD' ] === 'POST') {
 <main class="contenedor sección">
 	<h1>Crear</h1>
 	<a href="index.php?s=panel" class="boton boton-verde">Volver</a>
-
-	<form action="index.php?s=crear-propiedad" method="post" class="formulario">
+	<form action="index.php?s=crear-propiedad" method="post" class="formulario" enctype="multipart/form-data">
 		<fieldset>
 			<legend>Información general</legend>
 			<label for="titulo">Titulo</label>
@@ -90,6 +111,11 @@ if ($_SERVER[ 'REQUEST_METHOD' ] === 'POST') {
          <?php endif; ?>
 			<label for="imagen">Imagen</label>
 			<input type="file" id="imagen" name="imagen" accept="image/jpeg, imager/png">
+         <?php if (isset($errores[ 'imagen' ])): ?>
+				<div class="msj-error">
+					&#215; <?php echo $errores[ 'imagen' ]; ?>
+				</div>
+         <?php endif; ?>
 			<label for="descripcion">Descripción</label>
 			<textarea name="descripcion" id="descripcion"><?php echo empty($_POST[ 'descripcion' ]) ? '' : $_POST[ 'descripcion' ]; ?></textarea>
          <?php if (isset($errores[ 'descripcion' ])): ?>

@@ -6,3 +6,57 @@
     font-weight: 600;
     border-radius: 1rem;
 }
+
+.exito {
+    background-color: #71b100;
+}
+
+.alerta {
+    text-align: center;
+    padding: 1rem 0;
+    text-transform: uppercase;
+}
+
+table {
+    color: #fafafa;
+}
+
+table.propiedades {
+    margin-top: 4rem;
+    width: 100%;
+    border-spacing: 0;
+}
+
+table.propiedades thead {
+    background-color: #71b100;
+}
+
+table.propiedades td {
+    text-align: center;
+}
+
+table.propiedades th {
+    padding: 1rem;
+}
+
+.imagen-tabla {
+    width: 100px;
+    margin: 0 auto;
+}
+
+a.boton-rojito-block {
+    background-color: #b7060e;
+    border: none;
+    box-sizing: inherit;
+    color: #e1e1e1;
+    display: block;
+    font-family: Lato, sans-serif;
+    font-weight: 700;
+    line-height: 28.8px;
+    margin-top: 2.5rem;
+    outline-offset: 1px;
+    padding: 1rem 3rem;
+    text-align: center;
+    text-decoration: none;
+}
+

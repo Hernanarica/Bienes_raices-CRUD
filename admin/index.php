@@ -24,11 +24,9 @@ if (!isset($routes[ $section ])) {
 			<a href="../index.php?s=home">
 				<img src="../build/img/logo.svg" alt="Logotipo de Bienes Raíces">
 			</a>
-
 			<div class="mobile-menu">
 				<img src="../build/img/barras.svg" alt="icono menu responsive">
 			</div>
-
 			<div class="derecha">
 				<img class="dark-mode-boton" src="../build/img/dark-mode.svg">
 				<nav class="navegacion">
@@ -53,10 +51,8 @@ require_once 'sections/' . $section . '.php';
 			<a href="../index.php?s=contacto">Contacto</a>
 		</nav>
 	</div>
-
 	<p class="copyright">Todos los derechos Reservados <?php echo date('Y'); ?> &copy;</p>
 </footer>
-
 <script src="../build/js/bundle.min.js"></script>
 </body>
 </html>
