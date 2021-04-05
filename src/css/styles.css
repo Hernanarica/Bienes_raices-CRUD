@@ -60,3 +60,11 @@ a.boton-rojito-block {
     text-decoration: none;
 }
 
+#alerta-danger {
+    background-color: #b7060e;
+}
+
+.danger {
+    background-color: #b7060e;
+}
+
