@@ -1,205 +1,48 @@
-<main class="contenedor seccion">
+<?php
+require_once 'dataBase/database.php';
+$db = connectionDB();
 
-	<h2>Casas y Depas en Venta</h2>
+// Traemos las propiedades
+$queryPropiedades = "SELECT * FROM propiedades";
+$resPropiedades   = mysqli_query($db, $queryPropiedades);
+$propiedades      = [];
 
-	<div class="contenedor-anuncios">
-		<div class="anuncio">
-			<picture>
-				<source srcset="build/img/anuncio1.webp" type="image/webp">
-				<source srcset="build/img/anuncio1.jpg" type="image/jpeg">
-				<img loading="lazy" src="build/img/anuncio1.jpg" alt="anuncio">
-			</picture>
-
-			<div class="contenido-anuncio">
-				<h3>Casa de Lujo en el Lago</h3>
-				<p>Casa en el lago con excelente vista, acabados de lujo a un excelente precio</p>
-				<p class="precio">$3,0000,000</p>
-
-				<ul class="iconos-caracteristicas">
-					<li>
-						<img class="icono" loading="lazy" src="build/img/icono_wc.svg" alt="icono wc">
-						<p>3</p>
-					</li>
-					<li>
-						<img class="icono" loading="lazy" src="build/img/icono_estacionamiento.svg" alt="icono estacionamiento">
-						<p>3</p>
-					</li>
-					<li>
-						<img class="icono" loading="lazy" src="build/img/icono_dormitorio.svg" alt="icono habitaciones">
-						<p>4</p>
-					</li>
-				</ul>
-
-				<a href="anuncio.php" class="boton-amarillo-block">
-					Ver Propiedad
-				</a>
-			</div><!--.contenido-anuncio-->
-		</div><!--anuncio-->
-
-		<div class="anuncio">
-			<picture>
-				<source srcset="build/img/anuncio2.webp" type="image/webp">
-				<source srcset="build/img/anuncio2.jpg" type="image/jpeg">
-				<img loading="lazy" src="build/img/anuncio2.jpg" alt="anuncio">
-			</picture>
-
-			<div class="contenido-anuncio">
-				<h3>Casa terminados de lujo</h3>
-				<p>Casa en el lago con excelente vista, acabados de lujo a un excelente precio</p>
-				<p class="precio">$3,0000,000</p>
-
-				<ul class="iconos-caracteristicas">
-					<li>
-						<img class="icono" loading="lazy" src="build/img/icono_wc.svg" alt="icono wc">
-						<p>3</p>
-					</li>
-					<li>
-						<img class="icono" loading="lazy" src="build/img/icono_estacionamiento.svg" alt="icono estacionamiento">
-						<p>3</p>
-					</li>
-					<li>
-						<img class="icono" loading="lazy" src="build/img/icono_dormitorio.svg" alt="icono habitaciones">
-						<p>4</p>
-					</li>
-				</ul>
-
-				<a href="anuncio.php" class="boton-amarillo-block">
-					Ver Propiedad
-				</a>
-			</div><!--.contenido-anuncio-->
-		</div><!--anuncio-->
-
-		<div class="anuncio">
-			<picture>
-				<source srcset="build/img/anuncio3.webp" type="image/webp">
-				<source srcset="build/img/anuncio3.jpg" type="image/jpeg">
-				<img loading="lazy" src="build/img/anuncio3.jpg" alt="anuncio">
-			</picture>
-
-			<div class="contenido-anuncio">
-				<h3>Casa con alberca</h3>
-				<p>Casa en el lago con excelente vista, acabados de lujo a un excelente precio</p>
-				<p class="precio">$3,0000,000</p>
-
-				<ul class="iconos-caracteristicas">
-					<li>
-						<img class="icono" loading="lazy" src="build/img/icono_wc.svg" alt="icono wc">
-						<p>3</p>
-					</li>
-					<li>
-						<img class="icono" loading="lazy" src="build/img/icono_estacionamiento.svg" alt="icono estacionamiento">
-						<p>3</p>
-					</li>
-					<li>
-						<img class="icono" loading="lazy" src="build/img/icono_dormitorio.svg" alt="icono habitaciones">
-						<p>4</p>
-					</li>
-				</ul>
-
-				<a href="anuncio.php" class="boton-amarillo-block">
-					Ver Propiedad
-				</a>
-			</div><!--.contenido-anuncio-->
-		</div><!--anuncio-->
-
-		<div class="anuncio">
-			<picture>
-				<source srcset="build/img/anuncio4.webp" type="image/webp">
-				<source srcset="build/img/anuncio4.jpg" type="image/jpeg">
-				<img loading="lazy" src="build/img/anuncio4.jpg" alt="anuncio">
-			</picture>
-
-			<div class="contenido-anuncio">
-				<h3>Casa con alberca</h3>
-				<p>Casa en el lago con excelente vista, acabados de lujo a un excelente precio</p>
-				<p class="precio">$3,0000,000</p>
-
-				<ul class="iconos-caracteristicas">
-					<li>
-						<img class="icono" loading="lazy" src="build/img/icono_wc.svg" alt="icono wc">
-						<p>3</p>
-					</li>
-					<li>
-						<img class="icono" loading="lazy" src="build/img/icono_estacionamiento.svg" alt="icono estacionamiento">
-						<p>3</p>
-					</li>
-					<li>
-						<img class="icono" loading="lazy" src="build/img/icono_dormitorio.svg" alt="icono habitaciones">
-						<p>4</p>
-					</li>
-				</ul>
-
-				<a href="anuncio.php" class="boton-amarillo-block">
-					Ver Propiedad
-				</a>
-			</div><!--.contenido-anuncio-->
-		</div><!--anuncio-->
-
-		<div class="anuncio">
-			<picture>
-				<source srcset="build/img/anuncio5.webp" type="image/webp">
-				<source srcset="build/img/anuncio5.jpg" type="image/jpeg">
-				<img loading="lazy" src="build/img/anuncio5.jpg" alt="anuncio">
-			</picture>
-
-			<div class="contenido-anuncio">
-				<h3>Casa con alberca</h3>
-				<p>Casa en el lago con excelente vista, acabados de lujo a un excelente precio</p>
-				<p class="precio">$3,0000,000</p>
-
-				<ul class="iconos-caracteristicas">
-					<li>
-						<img class="icono" loading="lazy" src="build/img/icono_wc.svg" alt="icono wc">
-						<p>3</p>
-					</li>
-					<li>
-						<img class="icono" loading="lazy" src="build/img/icono_estacionamiento.svg" alt="icono estacionamiento">
-						<p>3</p>
-					</li>
-					<li>
-						<img class="icono" loading="lazy" src="build/img/icono_dormitorio.svg" alt="icono habitaciones">
-						<p>4</p>
-					</li>
-				</ul>
-
-				<a href="anuncio.php" class="boton-amarillo-block">
-					Ver Propiedad
-				</a>
-			</div><!--.contenido-anuncio-->
-		</div><!--anuncio-->
-
-		<div class="anuncio">
-			<picture>
-				<source srcset="build/img/anuncio6.webp" type="image/webp">
-				<source srcset="build/img/anuncio6.jpg" type="image/jpeg">
-				<img loading="lazy" src="build/img/anuncio6.jpg" alt="anuncio">
-			</picture>
-
-			<div class="contenido-anuncio">
-				<h3>Casa con alberca</h3>
-				<p>Casa en el lago con excelente vista, acabados de lujo a un excelente precio</p>
-				<p class="precio">$3,0000,000</p>
-
-				<ul class="iconos-caracteristicas">
-					<li>
-						<img class="icono" loading="lazy" src="build/img/icono_wc.svg" alt="icono wc">
-						<p>3</p>
-					</li>
-					<li>
-						<img class="icono" loading="lazy" src="build/img/icono_estacionamiento.svg" alt="icono estacionamiento">
-						<p>3</p>
-					</li>
-					<li>
-						<img class="icono" loading="lazy" src="build/img/icono_dormitorio.svg" alt="icono habitaciones">
-						<p>4</p>
-					</li>
-				</ul>
-
-				<a href="anuncio.php" class="boton-amarillo-block">
-					Ver Propiedad
-				</a>
-			</div><!--.contenido-anuncio-->
-		</div><!--anuncio-->
-
-	</div> <!--.contenedor-anuncios-->
-</main>
+while ($item = mysqli_fetch_assoc($resPropiedades)) {
+   $propiedades[] = $item;
+}
+?>
+	<main class="contenedor seccion">
+		<h2>Casas y Depas en Venta</h2>
+		<div class="contenedor-anuncios">
+         <?php foreach ($propiedades as $propiedad): ?>
+				<div class="anuncio">
+					<img loading="lazy" src="test-images/<?php echo $propiedad[ 'imagen' ]; ?>" alt="anuncio">
+					<div class="contenido-anuncio">
+						<h3><?php echo $propiedad[ 'titulo' ]; ?></h3>
+						<p><?php echo $propiedad[ 'descripcion' ]; ?></p>
+						<p class="precio">$<?php echo $propiedad[ 'precio' ]; ?></p>
+						<ul class="iconos-caracteristicas">
+							<li>
+								<img class="icono" loading="lazy" src="build/img/icono_wc.svg" alt="icono wc">
+								<p><?php echo $propiedad[ 'wc' ]; ?></p>
+							</li>
+							<li>
+								<img class="icono" loading="lazy" src="build/img/icono_estacionamiento.svg" alt="icono estacionamiento">
+								<p><?php echo $propiedad[ 'estacionamiento' ]; ?></p>
+							</li>
+							<li>
+								<img class="icono" loading="lazy" src="build/img/icono_dormitorio.svg" alt="icono habitaciones">
+								<p><?php echo $propiedad[ 'habitaciones' ]; ?></p>
+							</li>
+						</ul>
+						<a href="index.php?s=anuncio&id=<?php echo $propiedad[ 'id_propiedades' ]; ?>" class="boton-amarillo-block">
+							Ver Propiedad
+						</a>
+					</div>
+				</div>
+         <?php endforeach; ?>
+		</div> <!--.contenedor-anuncios-->
+	</main>
+<?php
+mysqli_close($db);
+?>

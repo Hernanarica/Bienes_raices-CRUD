@@ -100,84 +100,85 @@ if ($_SERVER[ 'REQUEST_METHOD' ] === 'POST') {
    }
 }
 ?>
-<main class="contenedor sección">
-	<h1>Actualizar</h1>
-	<a href="index.php?s=panel" class="boton boton-verde">Volver</a>
-	<form method="post" class="formulario" enctype="multipart/form-data">
-		<fieldset>
-			<legend>Información general</legend>
-			<label for="titulo">Titulo</label>
-			<input type="text" id="titulo" name="titulo" placeholder="Titulo propiedad" value="<?php echo $propiedad[ 'titulo' ]; ?>">
-         <?php if (isset($errores[ 'titulo' ])): ?>
-				<div class="msj-error">
-					&#215; <?php echo $errores[ 'titulo' ]; ?>
-				</div>
-         <?php endif; ?>
-			<label for="precio">Precio</label>
-			<input type="number" id="precio" name="precio" placeholder="Precio propiedad" value="<?php echo $propiedad[ 'precio' ]; ?>">
-         <?php if (isset($errores[ 'precio' ])): ?>
-				<div class="msj-error">
-					&#215; <?php echo $errores[ 'precio' ]; ?>
-				</div>
-         <?php endif; ?>
-			<label for="imagen">Imagen</label>
-			<input type="file" id="imagen" name="imagen" accept="image/jpeg, imager/png">
-			<img src="../test-images/<?php echo $propiedad[ 'imagen' ]; ?>" alt="imagen de una casa">
-         <?php if (isset($errores[ 'imagen' ])): ?>
-				<div class="msj-error">
-					&#215; <?php echo $errores[ 'imagen' ]; ?>
-				</div>
-         <?php endif; ?>
-			<label for="descripcion">Descripción</label>
-			<textarea name="descripcion" id="descripcion"><?php echo $propiedad[ 'descripcion' ]; ?></textarea>
-         <?php if (isset($errores[ 'descripcion' ])): ?>
-				<div class="msj-error">
-					&#215; <?php echo $errores[ 'descripcion' ]; ?>
-				</div>
-         <?php endif; ?>
-		</fieldset>
-		<fieldset>
-			<legend>Información propiedad</legend>
-			<label for="habitaciones">Habitaciones</label>
-			<input type="number" id="habitaciones" name="habitaciones" placeholder="habitaciones propiedad" min="1" max="9" step="1"
-			       value="<?php echo $propiedad[ 'habitaciones' ]; ?>">
-         <?php if (isset($errores[ 'habitaciones' ])): ?>
-				<div class="msj-error">
-					&#215; <?php echo $errores[ 'habitaciones' ]; ?>
-				</div>
-         <?php endif; ?>
-			<label for="wc">Baños</label>
-			<input type="number" id="wc" name="wc" placeholder="baños propiedad" value="<?php echo $propiedad[ 'wc' ]; ?>">
-         <?php if (isset($errores[ 'wc' ])): ?>
-				<div class="msj-error">
-					&#215; <?php echo $errores[ 'wc' ]; ?>
-				</div>
-         <?php endif; ?>
-			<label for="estacionamiento">Estacionamiento</label>
-			<input type="number" id="estacionamiento" name="estacionamiento" placeholder="estacionamiento propiedad"
-			       value="<?php echo $propiedad[ 'estacionamiento' ]; ?>">
-         <?php if (isset($errores[ 'estacionamiento' ])): ?>
-				<div class="msj-error">
-					&#215; <?php echo $errores[ 'estacionamiento' ]; ?>
-				</div>
-         <?php endif; ?>
-		</fieldset>
-		<fieldset>
-			<legend>Vendedor</legend>
-			<select name="vendedor">
-				<option value="">--Seleccione--</option>
-            <?php foreach ($vendedores as $vendedor): ?>
-					<option <?php echo $vendedorId === $vendedor[ 'id_vendedores' ] ? 'selected' : ''; ?> value="<?php echo $vendedor[ 'id_vendedores' ] ?>">
-                  <?php echo $vendedor[ 'nombre' ]; ?>
-					</option>
-            <?php endforeach; ?>
-			</select>
-         <?php if (isset($errores[ 'vendedor' ])): ?>
-				<div class="msj-error">
-					&#215; <?php echo $errores[ 'vendedor' ]; ?>
-				</div>
-         <?php endif; ?>
-		</fieldset>
-		<input type="submit" value="Actualizar propiedad" class="boton boton-verde">
-	</form>
-</main>
+	<main class="contenedor sección">
+		<h1>Actualizar</h1>
+		<a href="index.php?s=panel" class="boton boton-verde">Volver</a>
+		<form method="post" class="formulario" enctype="multipart/form-data">
+			<fieldset>
+				<legend>Información general</legend>
+				<label for="titulo">Titulo</label>
+				<input type="text" id="titulo" name="titulo" placeholder="Titulo propiedad" value="<?php echo $propiedad[ 'titulo' ]; ?>">
+            <?php if (isset($errores[ 'titulo' ])): ?>
+					<div class="msj-error">
+						&#215; <?php echo $errores[ 'titulo' ]; ?>
+					</div>
+            <?php endif; ?>
+				<label for="precio">Precio</label>
+				<input type="number" id="precio" name="precio" placeholder="Precio propiedad" value="<?php echo $propiedad[ 'precio' ]; ?>">
+            <?php if (isset($errores[ 'precio' ])): ?>
+					<div class="msj-error">
+						&#215; <?php echo $errores[ 'precio' ]; ?>
+					</div>
+            <?php endif; ?>
+				<label for="imagen">Imagen</label>
+				<input type="file" id="imagen" name="imagen" accept="image/jpeg, imager/png">
+				<img src="../test-images/<?php echo $propiedad[ 'imagen' ]; ?>" alt="imagen de una casa">
+            <?php if (isset($errores[ 'imagen' ])): ?>
+					<div class="msj-error">
+						&#215; <?php echo $errores[ 'imagen' ]; ?>
+					</div>
+            <?php endif; ?>
+				<label for="descripcion">Descripción</label>
+				<textarea name="descripcion" id="descripcion"><?php echo $propiedad[ 'descripcion' ]; ?></textarea>
+            <?php if (isset($errores[ 'descripcion' ])): ?>
+					<div class="msj-error">
+						&#215; <?php echo $errores[ 'descripcion' ]; ?>
+					</div>
+            <?php endif; ?>
+			</fieldset>
+			<fieldset>
+				<legend>Información propiedad</legend>
+				<label for="habitaciones">Habitaciones</label>
+				<input type="number" id="habitaciones" name="habitaciones" placeholder="habitaciones propiedad" min="1" max="9" step="1" value="<?php echo $propiedad[ 'habitaciones' ]; ?>">
+            <?php if (isset($errores[ 'habitaciones' ])): ?>
+					<div class="msj-error">
+						&#215; <?php echo $errores[ 'habitaciones' ]; ?>
+					</div>
+            <?php endif; ?>
+				<label for="wc">Baños</label>
+				<input type="number" id="wc" name="wc" placeholder="baños propiedad" value="<?php echo $propiedad[ 'wc' ]; ?>">
+            <?php if (isset($errores[ 'wc' ])): ?>
+					<div class="msj-error">
+						&#215; <?php echo $errores[ 'wc' ]; ?>
+					</div>
+            <?php endif; ?>
+				<label for="estacionamiento">Estacionamiento</label>
+				<input type="number" id="estacionamiento" name="estacionamiento" placeholder="estacionamiento propiedad" value="<?php echo $propiedad[ 'estacionamiento' ]; ?>">
+            <?php if (isset($errores[ 'estacionamiento' ])): ?>
+					<div class="msj-error">
+						&#215; <?php echo $errores[ 'estacionamiento' ]; ?>
+					</div>
+            <?php endif; ?>
+			</fieldset>
+			<fieldset>
+				<legend>Vendedor</legend>
+				<select name="vendedor">
+					<option value="">--Seleccione--</option>
+               <?php foreach ($vendedores as $vendedor): ?>
+						<option <?php echo $vendedorId === $vendedor[ 'id_vendedores' ] ? 'selected' : ''; ?> value="<?php echo $vendedor[ 'id_vendedores' ] ?>">
+                     <?php echo $vendedor[ 'nombre' ]; ?>
+						</option>
+               <?php endforeach; ?>
+				</select>
+            <?php if (isset($errores[ 'vendedor' ])): ?>
+					<div class="msj-error">
+						&#215; <?php echo $errores[ 'vendedor' ]; ?>
+					</div>
+            <?php endif; ?>
+			</fieldset>
+			<input type="submit" value="Actualizar propiedad" class="boton boton-verde">
+		</form>
+	</main>
+<?php
+mysqli_close($db);
+?>

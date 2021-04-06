@@ -19,3 +19,5 @@ if ($res) {
 } else {
    header('location: index.php?s=panel&resultado=4');
 }
+
+mysqli_close($db);

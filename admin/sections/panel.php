@@ -14,7 +14,6 @@ if ($res) {
 
 $resultado = $_GET[ 'resultado' ] ?? null;
 ?>
-
 	<main class="contenedor sección">
       <?php if (intval($resultado) === 1): ?>
 			<p class="alerta exito">Propiedad creada correctamente</p>
@@ -29,27 +28,29 @@ $resultado = $_GET[ 'resultado' ] ?? null;
 		<a href="index.php?s=crear-propiedad" class="boton boton-verde">Crear propiedad</a>
 		<table class="propiedades">
 			<thead>
-			<tr>
-				<th>ID</th>
-				<th>Titulo</th>
-				<th>Imagen</th>
-				<th>Precio</th>
-				<th>Acciones</th>
-			</tr>
+				<tr>
+					<th>ID</th>
+					<th>Titulo</th>
+					<th>Imagen</th>
+					<th>Precio</th>
+					<th>Acciones</th>
+				</tr>
 			</thead>
 			<tbody>
-         <?php foreach ($propiedades as $propiedad): ?>
-				<tr>
-					<td><?php echo $propiedad[ 'id_propiedades' ]; ?></td>
-					<td><?php echo $propiedad[ 'titulo' ]; ?></td>
-					<td><img src="../test-images/<?php echo $propiedad[ 'imagen' ]; ?>" alt="imagen de casa" class="imagen-tabla"></td>
-					<td><?php echo $propiedad[ 'precio' ]; ?>$</td>
-					<td>
-						<a href="index.php?s=eliminar-propiedad&id=<?php echo $propiedad[ 'id_propiedades' ]; ?>" class="boton-rojito-block">Eliminar</a>
-						<a href="index.php?s=editar-propiedad&id=<?php echo $propiedad[ 'id_propiedades' ]; ?>" class="boton-amarillo-block">Actualizar</a>
-					</td>
-				</tr>
-         <?php endforeach; ?>
+            <?php foreach ($propiedades as $propiedad): ?>
+					<tr>
+						<td><?php echo $propiedad[ 'id_propiedades' ]; ?></td>
+						<td><?php echo $propiedad[ 'titulo' ]; ?></td>
+						<td>
+							<img src="../test-images/<?php echo $propiedad[ 'imagen' ]; ?>" alt="imagen de casa" class="imagen-tabla">
+						</td>
+						<td><?php echo $propiedad[ 'precio' ]; ?>$</td>
+						<td>
+							<a href="index.php?s=eliminar-propiedad&id=<?php echo $propiedad[ 'id_propiedades' ]; ?>" class="boton-rojito-block">Eliminar</a>
+							<a href="index.php?s=editar-propiedad&id=<?php echo $propiedad[ 'id_propiedades' ]; ?>" class="boton-amarillo-block">Actualizar</a>
+						</td>
+					</tr>
+            <?php endforeach; ?>
 			</tbody>
 		</table>
 	</main>

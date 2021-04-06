@@ -9,6 +9,9 @@ $routes = [
    'anuncios' => [
       'title' => 'Anuncios',
    ],
+   'anuncio' => [
+      'title' => 'Descripción de la propiedad',
+   ],
    'blog' => [
       'title' => 'Blog',
    ],
