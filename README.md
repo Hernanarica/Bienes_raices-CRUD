@@ -1,4 +1,4 @@
-# Bienes_raices-CRUD
+# Bienes raices CRUD
 Proyecto de bienes raíces (CRUD) con PHP (spaghetti) y bases de datos (MySql mysqli)
 
 <p align="center">
@@ -6,7 +6,7 @@ Proyecto de bienes raíces (CRUD) con PHP (spaghetti) y bases de datos (MySql my
 </p>
 
 ```js
-class Project extends CRUD {
+class Project {
   name     = 'Proyecto Bienes Raices';
   developer    = 'Hernán Arica';
   location = 'Ciudad de Buenos Aires, Argentina';
