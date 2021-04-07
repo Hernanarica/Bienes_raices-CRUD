@@ -7,9 +7,9 @@ Proyecto de bienes raíces (CRUD) con PHP (spaghetti) y bases de datos (MySql my
 
 ```js
 class Project {
-  name     = 'Proyecto Bienes Raices';
-  developer    = 'Hernán Arica';
-  location = 'Ciudad de Buenos Aires, Argentina';
+  name      = 'Proyecto Bienes Raices';
+  developer = 'Hernán Arica';
+  location  = 'Ciudad de Buenos Aires, Argentina';
 }
 
 class technologies {
