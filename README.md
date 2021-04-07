@@ -12,7 +12,7 @@ class Project {
   location  = 'Ciudad de Buenos Aires, Argentina';
 }
 
-class technologies {
+class Technologies {
   languages  = ['css', 'html', 'javascript', 'php', 'sql'];
   databases  = ['MySQL'];
 }
