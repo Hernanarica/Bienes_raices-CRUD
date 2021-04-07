@@ -1,10 +1,16 @@
 <?php
 require_once 'router/router.php';
+require_once '../libraries/auth.php';
 
 $section = $_GET[ 's' ] ?? 'panel';
 
 if (!isset($routes[ $section ])) {
    $section = 404;
+}
+
+$auth = isAuth();
+if (!$auth) {
+   header('location: ../index.php?s=login');
 }
 ?>
 <!DOCTYPE html>
@@ -33,6 +39,9 @@ if (!isset($routes[ $section ])) {
 							<a href="../index.php?s=anuncios">Anuncios</a>
 							<a href="../index.php?s=blog">Blog</a>
 							<a href="../index.php?s=contacto">Contacto</a>
+                     <?php if ($auth): ?>
+								<a href="actions/logOuth.php">Cerrar sesión</a>
+                     <?php endif; ?>
 						</nav>
 					</div>
 				</div>

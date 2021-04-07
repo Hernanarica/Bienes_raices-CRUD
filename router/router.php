@@ -18,4 +18,7 @@ $routes = [
    'contacto' => [
       'title' => 'Contacto',
    ],
+   'login' => [
+      'title' => 'Inicia sesión',
+   ],
 ];

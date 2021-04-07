@@ -1,6 +1,7 @@
 <?php
 
 require_once 'router/router.php';
+require_once 'libraries/auth.php';
 
 $section = $_GET[ 's' ] ?? 'home';
 
@@ -8,6 +9,7 @@ if (!isset($routes[ $section ])) {
    $section = 404;
 }
 
+$auth = isAuth();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -16,6 +18,7 @@ if (!isset($routes[ $section ])) {
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title><?php echo $routes[ $section ][ 'title' ]; ?></title>
 		<link rel="stylesheet" href="build/css/app.css">
+		<link rel="stylesheet" href="src/css/styles.css">
 	</head>
 	<body>
 		<header class="header <?php echo $section === 'home' ? 'inicio' : ''; ?>">
@@ -34,6 +37,11 @@ if (!isset($routes[ $section ])) {
 							<a href="index.php?s=anuncios">Anuncios</a>
 							<a href="index.php?s=blog">Blog</a>
 							<a href="index.php?s=contacto">Contacto</a>
+                     <?php if ($auth): ?>
+								<a href="admin/actions/logOuth.php">Cerrar sesión</a>
+                     <?php else: ?>
+								<a href="index.php?s=login">Iniciar sesión</a>
+                     <?php endif; ?>
 						</nav>
 					</div>
 				</div>
